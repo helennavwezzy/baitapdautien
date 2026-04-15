@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Profile - Ngọc Ánh - JOYWORK (Pink Edition)</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        :root {
+            /* THIẾT LẬP MÀU THEO FORM HỒNG */
+            --bg-color: #fdf2f8; 
+            --card-bg: #ffffff;  
+            --text-main: #333333; 
+            --text-sub: #555555;  
+            --accent-pink: #f472b6; 
+            --btn-social-bg: #f8fafc; 
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+        }
+
+        .profile-card {
+            background: var(--card-bg);
+            padding: 2.5rem 2rem;
+            border-radius: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            text-align: center;
+            max-width: 380px;
+            width: 90%;
+            border: 1px solid #fce7f3;
+        }
+
+        .avatar {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        h1 { 
+            margin: 10px 0 5px; 
+            color: var(--text-main); 
+            font-size: 2rem; 
+            letter-spacing: -0.5px;
+        }
+
+        .title { 
+            color: var(--text-sub); 
+            font-weight: 500; 
+            font-size: 1.1rem; 
+            margin-bottom: 25px; 
+            line-height: 1.4;
+        }
+        
+        .title strong {
+            color: var(--accent-pink);
+        }
+
+        .links-title {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            padding: 12px 18px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+        }
+
+        .btn-social {
+            background: var(--btn-social-bg);
+            color: var(--text-main);
+            border: 1px solid #e2e8f0;
+            flex: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-social:hover {
+            background: #fff;
+            border-color: var(--accent-pink);
+            color: var(--accent-pink);
+            box-shadow: 0 3px 10px rgba(244, 114, 182, 0.15);
+        }
+
+        .btn-gift {
+            background: var(--accent-pink);
+            color: white;
+            width: 100%;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 12px rgba(244, 114, 182, 0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-gift:hover {
+            background: #ec4899;
+            box-shadow: 0 6px 15px rgba(244, 114, 182, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+<div class="profile-card">
+    <img src="avatar.jpg" alt="Ngọc Ánh" class="avatar">
+    
+    <h1>Ngọc Ánh</h1>
+    <p class="title">Designer <br> <strong>Homi Hero | Homi </strong></p>
+
+    <div class="links">
+        <a href="https://www.facebook.com/awnhnehh" target="_blank" class="btn btn-social">Facebook</a>
+        <a href="https://zalo.me/0986856810" target="_blank" class="btn btn-social">Zalo</a>
+        <a href="https://www.linkedin.com/in/ngoc-anh-a76341235/" target="_blank" class="btn btn-social">LinkedIn</a>
+    </div>
+
+    <button class="btn btn-gift" onclick="fireworks()">Tặng quà 🎁</button>
+</div>
+
+<script>
+    function fireworks() {
+        const duration = 4 * 1000;
+        const animationEnd = Date.now() + duration;
+        const defaults = { startVelocity: 35, spread: 360, ticks: 70, zIndex: 0 };
+
+        const interval = setInterval(function() {
+            const timeLeft = animationEnd - Date.now();
+            if (timeLeft <= 0) return clearInterval(interval);
+
+            const particleCount = 50 * (timeLeft / duration);
+            confetti({ ...defaults, particleCount, origin: { x: Math.random(), y: Math.random() - 0.2 } });
+        }, 250);
+    }
+</script>
+
+</body>
+</html>
